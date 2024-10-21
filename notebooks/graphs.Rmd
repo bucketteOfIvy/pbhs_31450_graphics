@@ -85,22 +85,13 @@ industry <- read.csv('../data/doltonIndustry.csv') |>
 
 industry
 ```
-```{r}
-# Give me fonts or give me death!
-library(extrafont)
-font_import()
-loadfonts(device = 'win')
-
-windowsFonts()
-```
-
 ```{r make graphic}
 racial_changeover <- ggplot(race, aes(x=Year, group=Variable, color=Variable, y=Estimate)) +
   geom_line(lwd=3) + geom_point(size=5, show.legend=F) +
   scale_x_discrete(limits=c(1980, 1990, 2000, 2010, 2018)) +
   scale_color_manual(name='Race', values=c("#74226C", "#8CC7A1"), labels=c('Black Alone', 'White Alone')) +
   ylab("Percent Population") +
-  ggtitle("Dolton's rapid racial change", subtitle = "From 1980-2000, Dolton switched from predominately white to predominately black.") +
+  ggtitle("Dolton's rapid racial change", subtitle = "From 1980-2000, Dolton switched from predominately white to predominately Black.") +
   theme(panel.background = element_rect(fill='transparent'),
         plot.background = element_rect(fill='transparent'),
         panel.grid.major = element_blank(),
@@ -119,6 +110,7 @@ racial_changeover <- ggplot(race, aes(x=Year, group=Variable, color=Variable, y=
   labs(caption = 'Data from Cox et al (2024).')
   
 ggsave('../figures/racial_changeover.svg', racial_changeover, width=12, height=8)
+ggsave('../figures/racial_changeover_8_5.svg', racial_changeover, width=8, height=5.5)
 ```
 
 ```{r}
@@ -145,9 +137,10 @@ manu_decline <- ggplot(industry, aes(x=Year, y=Estimate, group=Variable, color=V
         legend.text = element_text(color='#4B2142', face='bold'),
         legend.title = element_text(color="#4B2142", face='bold', hjust=.5),
         plot.subtitle = element_text(color="#4B2142")) +
-  labs(caption = 'Data from Social Explorer (2024), ACS (2012), and ACS (2020).')
+  labs(caption = 'Data from Social Explorer (2024), U.S. Census (2012), and U.S. Census (2020).')
 
 ggsave("../figures/manufacturing_decline.svg", manu_decline, width=12, height=8)
+ggsave("../figures/manufacturing_decline_8_5.svg", manu_decline, width=8, height=5.5)
 
 
 ```
@@ -189,9 +182,11 @@ opposing_trends <- ggplot(combined, aes(x=Year)) +
         legend.text = element_text(color='#4B2142', face='bold'),
         legend.title = element_text(color="#4B2142", face='bold', hjust=.5),
         plot.subtitle = element_text(color="#4B2142")) +
-  labs(caption = 'Data from Social Explorer (2024), ACS (2012), ACS (2020), and Cox et al. (2024).')
+  labs(caption = 'Data from Social Explorer (2024), U.S. Census (2012), U.S. Census (2020), and Cox et al. (2024).')
   
 opposing_trends
 
 ggsave("../figures/opposing_trends.svg", opposing_trends, width=12, height=8)
+ggsave("../figures/opposing_trends_8_5.svg", opposing_trends, width=8, height=5.5)
+
 ```
