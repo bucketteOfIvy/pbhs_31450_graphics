@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='864.00pt' height='576.00pt' viewBox='0 0 864.00 576.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHw4NjQuMDB8MC4wMHw1NzYuMDA='>
+    <rect x='0.00' y='0.00' width='864.00' height='576.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHw1NzYuMDA=)'>
+<rect x='0.00' y='0.00' width='864.00' height='576.00' style='stroke-width: 1.07; stroke: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMzUuNDB8NzYzLjM0fDQzLjMyfDUyOS41Nw=='>
+    <rect x='35.40' y='43.32' width='727.94' height='486.25' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzUuNDB8NzYzLjM0fDQzLjMyfDUyOS41Nw==)'>
+<rect x='35.40' y='43.32' width='727.94' height='486.25' style='stroke-width: 1.07; stroke: none;' />
+<polyline points='46.54,507.47 232.24,334.20 417.94,137.85 603.63,88.62 752.19,82.23 ' style='stroke-width: 6.40; stroke: #74226C; stroke-linecap: butt;' />
+<polyline points='46.54,65.42 232.24,242.75 417.94,441.67 603.63,490.51 752.19,493.95 ' style='stroke-width: 6.40; stroke: #8CC7A1; stroke-linecap: butt;' />
+<circle cx='46.54' cy='65.42' r='5.69' style='stroke-width: 0.71; stroke: #8CC7A1; fill: #8CC7A1;' />
+<circle cx='232.24' cy='242.75' r='5.69' style='stroke-width: 0.71; stroke: #8CC7A1; fill: #8CC7A1;' />
+<circle cx='417.94' cy='441.67' r='5.69' style='stroke-width: 0.71; stroke: #8CC7A1; fill: #8CC7A1;' />
+<circle cx='603.63' cy='490.51' r='5.69' style='stroke-width: 0.71; stroke: #8CC7A1; fill: #8CC7A1;' />
+<circle cx='752.19' cy='493.95' r='5.69' style='stroke-width: 0.71; stroke: #8CC7A1; fill: #8CC7A1;' />
+<circle cx='46.54' cy='507.47' r='5.69' style='stroke-width: 0.71; stroke: #74226C; fill: #74226C;' />
+<circle cx='232.24' cy='334.20' r='5.69' style='stroke-width: 0.71; stroke: #74226C; fill: #74226C;' />
+<circle cx='417.94' cy='137.85' r='5.69' style='stroke-width: 0.71; stroke: #74226C; fill: #74226C;' />
+<circle cx='603.63' cy='88.62' r='5.69' style='stroke-width: 0.71; stroke: #74226C; fill: #74226C;' />
+<circle cx='752.19' cy='82.23' r='5.69' style='stroke-width: 0.71; stroke: #74226C; fill: #74226C;' />
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHw1NzYuMDA=)'>
+<text x='30.47' y='409.59' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='11.13px' lengthAdjust='spacingAndGlyphs'>25</text>
+<text x='30.47' y='285.05' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='11.13px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text x='30.47' y='160.51' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='11.13px' lengthAdjust='spacingAndGlyphs'>75</text>
+<polyline points='32.66,406.01 35.40,406.01 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='32.66,281.47 35.40,281.47 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='32.66,156.93 35.40,156.93 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='46.54,532.31 46.54,529.57 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='232.24,532.31 232.24,529.57 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='417.94,532.31 417.94,529.57 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='603.63,532.31 603.63,529.57 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='752.19,532.31 752.19,529.57 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<text x='46.54' y='541.67' text-anchor='middle' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='22.26px' lengthAdjust='spacingAndGlyphs'>1980</text>
+<text x='232.24' y='541.67' text-anchor='middle' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='22.26px' lengthAdjust='spacingAndGlyphs'>1990</text>
+<text x='417.94' y='541.67' text-anchor='middle' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='22.26px' lengthAdjust='spacingAndGlyphs'>2000</text>
+<text x='603.63' y='541.67' text-anchor='middle' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='22.26px' lengthAdjust='spacingAndGlyphs'>2010</text>
+<text x='752.19' y='541.67' text-anchor='middle' style='font-size: 10.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='22.26px' lengthAdjust='spacingAndGlyphs'>2018</text>
+<text x='399.37' y='555.11' text-anchor='middle' style='font-size: 12.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='25.37px' lengthAdjust='spacingAndGlyphs'>Year</text>
+<text transform='translate(14.08,286.44) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='109.35px' lengthAdjust='spacingAndGlyphs'>Percent Population</text>
+<rect x='774.29' y='255.85' width='84.23' height='61.19' style='stroke-width: 0.75;' />
+<rect x='774.29' y='255.85' width='84.23' height='61.19' style='stroke-width: 1.07; stroke: none;' />
+<text x='816.41' y='270.36' text-anchor='middle' style='font-size: 11.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>Race</text>
+<line x1='781.50' y1='285.64' x2='795.33' y2='285.64' style='stroke-width: 6.40; stroke: #74226C; stroke-linecap: butt;' />
+<line x1='781.50' y1='302.92' x2='795.33' y2='302.92' style='stroke-width: 6.40; stroke: #8CC7A1; stroke-linecap: butt;' />
+<text x='802.53' y='288.79' style='font-size: 8.80px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='50.05px' lengthAdjust='spacingAndGlyphs'>Black Alone</text>
+<text x='802.53' y='306.07' style='font-size: 8.80px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='50.51px' lengthAdjust='spacingAndGlyphs'>White Alone</text>
+<text x='35.40' y='35.52' style='font-size: 11.00px;fill: #4B2142; font-family: "Arial";' textLength='407.34px' lengthAdjust='spacingAndGlyphs'>From 1980-2000, Dolton switched from predominately white to predominately black.</text>
+<text x='35.40' y='18.37' style='font-size: 18.00px; font-weight: bold;fill: #4B2142; font-family: "Arial";' textLength='240.33px' lengthAdjust='spacingAndGlyphs'>Dolton's rapid racial change</text>
+<text x='35.40' y='568.84' style='font-size: 8.00px;fill: #4B2142; font-family: "Arial";' textLength='96.50px' lengthAdjust='spacingAndGlyphs'>Data from Cox et al (2024).</text>
+</g>
+</svg>

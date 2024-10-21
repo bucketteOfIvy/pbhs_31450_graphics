@@ -1,0 +1,197 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+GRAPHS !!!!!
+
+YIPPEEEEEE!!!
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+```
+
+```{r}
+# Clean race data
+race <- read.csv('../data/dolton_blackwhite_longitudinal.csv') |> mutate(
+  WhitePop80 = TotPop80 * WhiteP80 / 100,
+  WhitePop90 = TotPop90 * WhiteP90 / 100,
+  WhitePop00 = TotPop00 * WhiteP00 / 100,
+  WhitePop10 = TotPop10 * WhiteP10 / 100,
+  WhitePop18 = TotPop18 * WhiteP18 / 100,
+  BlackPop80 = TotPop80 * BlackP80 / 100,
+  BlackPop90 = TotPop90 * BlackP90 / 100,
+  BlackPop00 = TotPop00 * BlackP00 / 100,
+  BlackPop10 = TotPop10 * BlackP10 / 100,
+  BlackPop18 = TotPop18 * BlackP18 / 100
+) |>
+  select(TotPop80, TotPop90, TotPop00, TotPop10, TotPop18,
+         WhitePop80, WhitePop90, WhitePop00, WhitePop10, WhitePop18,
+         BlackPop80, BlackPop90, BlackPop00, BlackPop10, BlackPop18) |>
+  summarise(
+   TotPop80 = sum(TotPop80),
+   TotPop90 = sum(TotPop90),
+   TotPop00 = sum(TotPop00),
+   TotPop10 = sum(TotPop10),
+   TotPop18 = sum(TotPop18),
+   BlackPop80 = sum(BlackPop80),
+   BlackPop90 = sum(BlackPop90),
+   BlackPop00 = sum(BlackPop00),
+   BlackPop10 = sum(BlackPop10),
+   BlackPop18 = sum(BlackPop18),
+   WhitePop80 = sum(WhitePop80),
+   WhitePop90 = sum(WhitePop90),
+   WhitePop00 = sum(WhitePop00),
+   WhitePop10 = sum(WhitePop10),
+   WhitePop18 = sum(WhitePop18)
+  ) |> 
+  mutate(WhiteP1980 = 100 * WhitePop80 / TotPop80,
+         WhiteP1990 = 100 * WhitePop90 / TotPop90,
+         WhiteP2000 = 100 * WhitePop00 / TotPop00,
+         WhiteP2010 = 100 * WhitePop10 / TotPop10,
+         WhiteP2018 = 100 * WhitePop18 / TotPop18,
+         BlackP1980 = 100 * BlackPop80 / TotPop80,
+         BlackP1990 = 100 * BlackPop90 / TotPop90,
+         BlackP2000 = 100 * BlackPop00 / TotPop00,
+         BlackP2010 = 100 * BlackPop10 / TotPop10,
+         BlackP2018 = 100 * BlackPop18 / TotPop18) |>
+  select(WhiteP1980, WhiteP1990, WhiteP2000, WhiteP2010, WhiteP2018,
+         BlackP1980, BlackP1990, BlackP2000, BlackP2010, BlackP2018) |>
+  pivot_longer(cols=everything(),
+                     names_to = c("Variable", "Year"),
+                     names_pattern = "(.*)(\\d\\d\\d\\d)",
+                     values_to = "Estimate") |>
+  select(Year, Variable, Estimate) |>
+  mutate(Year = as.integer(Year))
+
+race
+```
+```{r industry data}
+
+industry <- read.csv('../data/doltonIndustry.csv') |>
+  summarize(M1980 = sum(Manufacturing80),
+            M1990 = sum(Manufacturing90),
+            M2000 = sum(Manufacturing00),
+            M2010 = sum(Manufacturing10),
+            M2018 = sum(Manufacturing18)) |>
+  pivot_longer(cols=everything(),
+               names_to = c('Variable', 'Year'),
+               names_pattern = '(.*)(\\d\\d\\d\\d)',
+               values_to='Estimate') |>
+  select('Year', 'Variable', 'Estimate') |>
+  mutate(Year = as.integer(Year))
+
+industry
+```
+```{r}
+# Give me fonts or give me death!
+library(extrafont)
+font_import()
+loadfonts(device = 'win')
+
+windowsFonts()
+```
+
+```{r make graphic}
+racial_changeover <- ggplot(race, aes(x=Year, group=Variable, color=Variable, y=Estimate)) +
+  geom_line(lwd=3) + geom_point(size=5, show.legend=F) +
+  scale_x_discrete(limits=c(1980, 1990, 2000, 2010, 2018)) +
+  scale_color_manual(name='Race', values=c("#74226C", "#8CC7A1"), labels=c('Black Alone', 'White Alone')) +
+  ylab("Percent Population") +
+  ggtitle("Dolton's rapid racial change", subtitle = "From 1980-2000, Dolton switched from predominately white to predominately black.") +
+  theme(panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent'),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.background = element_rect(fill='transparent'),
+        legend.box.background = element_rect(fill='transparent'),
+        plot.title = element_text(hjust = 0, size=18, color='#4B2142', face='bold'),
+        axis.title.x = element_text(color='#4B2142', face='bold', size=12),
+        axis.title.y = element_text(color='#4B2142', face='bold', size=12),
+        axis.text = element_text(color='#4B2142', face='bold', size=10),
+        plot.caption = element_text(color='#4B2142', size=8, hjust=0),
+        legend.key = element_blank(),
+        legend.text = element_text(color='#4B2142', face='bold'),
+        legend.title = element_text(color="#4B2142", face='bold', hjust=.5),
+        plot.subtitle = element_text(color="#4B2142")) +
+  labs(caption = 'Data from Cox et al (2024).')
+  
+ggsave('../figures/racial_changeover.svg', racial_changeover, width=12, height=8)
+```
+
+```{r}
+manu_decline <- ggplot(industry, aes(x=Year, y=Estimate, group=Variable, color=Variable)) +
+  geom_line(lwd=3, show.legend=F) + geom_point(size=5, show.legend=F) + 
+  scale_color_manual(values=c("#8CC7A1")) +
+  scale_x_discrete(limits=c(1980, 1990, 2000, 2010, 2018)) +
+  ggtitle("Dolton's manufacturing decline",
+          subtitle="Over the last 40 years, manufacturing jobs in Dolton dried up.") + 
+  ylab("Population in Manufacturing") +
+  xlab('Year') +
+  theme(panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent'),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.background = element_rect(fill='transparent'),
+        legend.box.background = element_rect(fill='transparent'),
+        plot.title = element_text(hjust = 0, size=18, color='#4B2142', face='bold'),
+        axis.title.x = element_text(color='#4B2142', face='bold', size=12),
+        axis.title.y = element_text(color='#4B2142', face='bold', size=12),
+        axis.text = element_text(color='#4B2142', face='bold', size=10),
+        plot.caption = element_text(color='#4B2142', size=8, hjust=0),
+        legend.key = element_blank(),
+        legend.text = element_text(color='#4B2142', face='bold'),
+        legend.title = element_text(color="#4B2142", face='bold', hjust=.5),
+        plot.subtitle = element_text(color="#4B2142")) +
+  labs(caption = 'Data from Social Explorer (2024), ACS (2012), and ACS (2020).')
+
+ggsave("../figures/manufacturing_decline.svg", manu_decline, width=12, height=8)
+
+
+```
+
+```{r}
+
+combined = rbind(race, industry) |>
+  spread(key=Variable, value=Estimate)
+combined |> select(Year, BlackP, M)
+
+combined
+
+coef = 5985.306 / 89.993266 
+
+opposing_trends <- ggplot(combined, aes(x=Year)) +
+  ggtitle("Opposing trends", subtitle="As Black families moved into Dolton, manufacturing jobs dried up.") +
+  geom_line( aes(y=BlackP), size=3, color="#74226C") + geom_point( aes(y=BlackP), size=5, color="#74226C") + 
+  geom_line( aes(y=M / coef), size=3, color="#8CC7A1") + geom_point( aes(y=M / coef), size=5, color="#8CC7A1") +
+  scale_x_discrete(limits=c(1980, 1990, 2000, 2010, 2018)) +
+  scale_y_continuous(
+    name = "Population Black Alone (%)",
+    
+    sec.axis = sec_axis(~.*coef, name="Population in Manufacturing")
+  ) +
+    theme(panel.background = element_rect(fill='transparent'),
+        plot.background = element_rect(fill='transparent'),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.background = element_rect(fill='transparent'),
+        legend.box.background = element_rect(fill='transparent'),
+        plot.title = element_text(hjust = 0, size=18, color='#4B2142', face='bold'),
+        axis.title.x = element_text(color='#4B2142', face='bold', size=12),
+        axis.title.y = element_text(color='#74226C', face='bold', size=12, hjust=1),
+        axis.text = element_text(color='#4B2142', face='bold', size=10),
+#        axis.text.y.right = element_text(color="#8CC7A1"),
+        axis.title.y.right = element_text(color="#8CC7A1", hjust=0, margin = margin(0, 0, 0, 5)),
+        plot.caption = element_text(color='#4B2142', size=8, hjust=0),
+        legend.key = element_blank(),
+        legend.text = element_text(color='#4B2142', face='bold'),
+        legend.title = element_text(color="#4B2142", face='bold', hjust=.5),
+        plot.subtitle = element_text(color="#4B2142")) +
+  labs(caption = 'Data from Social Explorer (2024), ACS (2012), ACS (2020), and Cox et al. (2024).')
+  
+opposing_trends
+
+ggsave("../figures/opposing_trends.svg", opposing_trends, width=12, height=8)
+```
